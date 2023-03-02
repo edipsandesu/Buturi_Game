@@ -1,0 +1,23 @@
+h1{
+    font-size: 30px;
+}
+
+li{
+    cursor: pointer;
+}
+
+li:hover::after{
+    content: "(x)";
+    font-size: 16px;
+    color: gray;
+    margin-left: 4px;
+}
+
+.gazo{
+    display:flex;
+}
+
+img{
+    width: 150px;
+    height: 150px;
+}
