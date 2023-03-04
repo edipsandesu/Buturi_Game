@@ -7,41 +7,46 @@ body{
     margin:0;
     padding:0;
     width: 1900px;
-    height: 1200px;
+    height: 1600px;
     background-color: rgb(255, 255, 255);
 }
 
 /*重力場1*/
-#GAZO{
-    position: absolute; /*子要素はabsoluteで親要素の元で位置を決めるようにする*/
-    width: 60px;
-    height: 60px;
-    top: 500px;
-    left: 700px;
-    position: relative;
-    cursor: pointer;
-}
-
-/*重力場2*/
-#GAZO2{
-    position: absolute; /*子要素はabsoluteで親要素の元で位置を決めるようにする*/
-    width: 60px;
-    height: 60px;
-    top: 500px;
-    left: 1200px;
-    position: relative;
-    cursor: pointer;
-}
-
-/*運動する彗星*/
 #gazo{
     position: absolute; /*子要素はabsoluteで親要素の元で位置を決めるようにする*/
     width: 40px;
     height: 40px;
-    top: 500px;
-    left: 850px;
+    top: 1200px;
+    left: 600px;
     position: relative;
-    cursor: pointer;
+    /*cursor: pointer;*/
+}
+
+/*重力場2*/
+#GAZO{
+    position: absolute; /*子要素はabsoluteで親要素の元で位置を決めるようにする*/
+    width: 100px;
+    height: 100px;
+    top: 800px;
+    left: 900px;
+}
+
+/*重力場3*/
+#GAZO2{
+    position: absolute; /*子要素はabsoluteで親要素の元で位置を決めるようにする*/
+    width: 60px;
+    height: 60px;
+    top: 200px;
+    left: 1400px;
+}
+
+/*重力場4*/
+#GAZO3{
+    position: absolute; /*子要素はabsoluteで親要素の元で位置を決めるようにする*/
+    width: 40px;
+    height: 40px;
+    top: 600px;
+    left: 400px;
 }
 
 button{
