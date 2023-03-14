@@ -4,18 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/denka.css">
+    <link rel="stylesheet" href="CSS/tentai.css">
     <title>物理ゲーム</title>
 </head>
-<body>
-<div class="place">
-    <button id="btn">スタート</button>
-    <img id="gazo" src="Gazo/球体.png">
-    <img id="GAZO" src="Gazo/球体.png">
-    <img id="GAZO2" src="Gazo/球体.png">
-    <img id="GAZO3" src="Gazo/球体.png">
-</div>
+<body> 
 
-<script src="JS/tentai.js"></script>
+    <div class="option">
+        <label>質量</label>
+        <input type="text" id="situryo" value="-100">
+        <label>x座標</label>
+        <input type="text" id="x_zahyo" value="100">
+        <label>y座標</label>
+        <input type="text" id="y_zahyo" value="200">
+        <label>x方向の初速度</label>
+        <input type="text" id="x_syosoku" value="16">
+        <label>y方向の初速度</label>
+        <input type="text" id="y_syosoku" value="1">
+        <input type="submit" id="tuika" value="追加">
+    </div>
+
+    </div>
+    <div class="place">
+        <button id="btn">スタート</button>
+        <img id="gazo" src="Gazo/球体.png">
+        <img id="GAZO" src="Gazo/球体.png">
+        <img id="GAZO2" src="Gazo/球体.png">
+        <img id="GAZO3" src="Gazo/球体.png">
+    </div>
+    <script src="JS/tentai.js"></script>
 </body>
 </html>

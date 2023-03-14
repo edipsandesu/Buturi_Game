@@ -1,0 +1,29 @@
+/*平面*/
+.place{
+    position: relative; /*親要素にはrelativeで子要素のための座標に指定*/
+    margin:0;
+    padding:0;
+    width: 1200px;
+    height: 800px;
+    background-color: rgb(255, 255, 255);
+    z-index: 0;
+}
+
+/*振り子*/
+#gazo{
+    position: absolute; /*子要素はabsoluteで親要素の元で位置を決めるようにする*/
+    width: 40px;
+    height: 40px;
+    top: 600px;
+    left: 600px;
+    /*cursor: pointer;*/
+}
+
+/*スタートボタン*/
+button{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    top: 0;
+    left: 0px;
+}

@@ -9,6 +9,7 @@ body{
     width: 1900px;
     height: 1600px;
     background-color: rgb(255, 255, 255);
+    z-index: 0;
 }
 
 /*重力場1*/
@@ -18,7 +19,6 @@ body{
     height: 40px;
     top: 1200px;
     left: 600px;
-    position: relative;
     /*cursor: pointer;*/
 }
 
@@ -54,5 +54,25 @@ button{
     width: 100px;
     height: 30px;
     top: 0;
-    left: 1800px;
+    left: 0px;
+}
+
+.option{
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    top:0;
+    left: 1770px;
+    z-index: 1;
+}
+
+label{
+    width: 120px;
+    height: 40px;
+    font-size: 30px;
+}
+input{
+    width: 120px;
+    height: 60px;
+    font-size: 30px;
 }
