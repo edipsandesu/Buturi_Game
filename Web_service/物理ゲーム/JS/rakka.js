@@ -15,8 +15,7 @@
     mono.fill();
     */
 
-    //クリックしたらアニメーション開始
-
+    //斜方投射のアニメーション
     function Anime(){
         let start = Date.now(); //アニメーションの動く時間
         let mono_start = start; //物体の運動のための時間
