@@ -1,0 +1,46 @@
+body{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    height: 800px;
+    display: flex; /*対象範囲の物をを横に並べる*/
+    flex-wrap: wrap; /*親要素の範囲を超えると子要素が(この場合card)次に折り返す*/
+    background-color: skyblue;
+}
+
+.box{
+    width: 330px;
+    height: 500px;
+    display: flex; /*対象範囲の物をを横に並べる*/
+    flex-wrap: wrap; /*親要素の範囲を超えると子要素が(この場合card)次に折り返す*/
+    background-color: rgb(198, 255, 124);
+}
+
+.gamen{
+    text-align: center;
+    width: 100%;
+    height: 90px;
+    font-size: 48px;
+    background-color: white;
+}
+
+.val{
+    cursor: pointer;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90px;
+    height: 90px;
+    background-color: gray;
+    font-size: 64px;
+    border-radius: 5px;
+}
+
+.enzan{
+    background-color: rgb(255, 230, 92);
+    width: 100px;
+    height: 500px;
+    display: flex; 
+    flex-wrap: wrap; 
+}

@@ -1,0 +1,104 @@
+body{
+    text-align: center;
+}
+
+.category{
+    margin: auto;
+    font-size: 20px;
+    width: 300px;
+    height: 300px;
+    text-align: left;
+    border-width: 3px;
+    border-color: rgb(255, 127, 22);
+    border-style: solid;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.midasi{
+    font-size: 20px;
+    text-align: center;
+}
+
+.month{
+    margin: auto;
+    width: 250px;
+    height: 125px;
+    font-size: 24px;
+    text-align: center;
+    border-width: 3px;
+    border-color: rgb(255, 127, 22);
+    border-style: solid;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.menu{
+    width: 250px;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+.menu #open{
+    padding-left: 210px;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.menu #open.not{
+    display: none;
+}
+
+.menu_close{
+    background-color: rgb(255, 255, 255, 0.9);
+    width: 250px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    text-align: left;
+    pointer-events: none; /*menu_closeが表示されたら裏にあるmenuを操作できなくする*/
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+.menu_close.show{
+    opacity: 1;  /*クリックされたらオープン*/
+    pointer-events: auto;  /*表示されたらmenu_closeにあるものを操作できるように戻す。noneの状態では下にあるものを操作できるようになっているから*/
+  }
+
+/*リストを表示する際のアニメーション用*/
+.menu_close.show li{
+    transform: none;  /*transformをnoneにすることで元の一に戻ろうとする。つまりこの場合上に上がっていく*/
+    opacity: 1;
+}
+
+.menu_close li{
+    transform: translateY(32px);
+    transition: opacity .3s, transform .3s;
+}
+
+.menu_close.show li:nth-child(1){
+    transition-delay: .1s;  /*0.1秒後に動作させる*/
+  }
+  .menu_close.show li:nth-child(2){
+    transition-delay: .2s;
+  }
+  .menu_close.show li:nth-child(3){
+    transition-delay: .3s;
+  }
+  .menu_close.show li:nth-child(4){
+    transition-delay: .4s;
+  }
+
+.menu_close #close{
+    font-size: 40px;
+    padding-left: 210px;
+    cursor: pointer;
+}
+
+@media(min-width: 751px){
+    .menu{
+        display: none;
+    }
+}

@@ -1,0 +1,71 @@
+body{
+    background-color: rgb(169, 255, 205);
+}
+
+.box1,
+.box2{
+    display: flex;
+    flex-wrap: wrap; /*親要素の範囲を超えると次に折り返す*/
+    width: 400px;
+    height: 240px;
+    /*background-color: skyblue;*/
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card{
+    transition: 0.7s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    width: 120px;
+    height: 180px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    position: relative; /*親要素を基準にしたい場合(この場合はcardが親)は親要素をrelativeにする*/
+}
+
+.card.open{
+    transform: rotateY(180deg);
+}
+
+/*カードが選択したらボーダーをつけて選択状態を表す*/
+.card.change{
+    transition: 0s;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 2px;
+    border-color: rgb(255, 120, 42);
+}
+
+.card-front,
+.card-back{
+    border-radius: 5px;
+    backface-visibility: hidden; /*表と裏を重ねる*/
+    width: 120px;
+    height: 180px;
+    font-size: 40px;
+    text-align: center;
+    line-height: 180px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.card-front{
+    background-color: white;
+    color:rgb(255, 41, 41);
+    transform: rotateY(180deg);
+}
+
+.card-back{
+    background-color: rgb(55, 182, 255);
+    color:rgb(255, 174, 0);
+}
+
+.hantei{
+    font-size: 32px;
+    text-align: center;
+    color: green;
+}

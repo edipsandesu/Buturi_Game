@@ -1,0 +1,83 @@
+#box{
+    margin: 0 auto;  /*左から縦横。autoにする自動で中央揃えになる。*/
+    width: 600px;
+    height: 800px;
+    display: flex; /*対象範囲の物をを横に並べる*/
+    flex-wrap: wrap; /*親要素の範囲を超えると子要素が(この場合card)次に折り返す*/
+}
+
+.card{
+    margin: 5px 5px;
+    cursor: pointer;
+    width: 100px;
+    height: 150px;
+    transition: 0.7s;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.card.hiraku{
+    transform: rotateY(180deg);
+}
+
+.omote,
+.ura{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    font-size: 40px;
+    text-align: center;
+    line-height: 150px;
+    position: absolute; top: 0; left: 0;
+    backface-visibility: hidden; /*表と裏を重ねる*/
+}
+
+.omote{
+    background-color: skyblue;
+    color: orange;
+    transform: rotateY(180deg);
+}
+
+.ura{
+    background-color: rgb(209, 231, 181);
+    color: rgb(255, 118, 141);
+}
+
+.button{
+    width: 80px;
+    height: 40px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    background-color: green;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+#time{
+    font-size: 40px;
+    color:rgb(139, 56, 36);
+    text-align: right;
+    margin: 0 5px 10px 0;
+}
+
+#start{
+    margin: 0 auto;
+    text-decoration: none;
+    display: block;
+    background: #2ecc36;
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    height: 50px;        /*高さを指定*/
+    width: 120px;        /*横幅を指定*/
+    line-height: 50px;   /*行ボックスの高さを指定。つまり文字が入るブロックの高さを指定する。heightの値を指定すれば自動で中央揃えになる*/
+    text-align: center;  /*文字の左右の位置を変えるcenterにすると中央揃えになる*/
+    font-size: 20px;
+    margin-top: 10px;  /*文字の上側の余白を15px開ける*/
+}
+
+#start.inactive{
+    cursor: default;
+    opacity: 0.4;
+}
