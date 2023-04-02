@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N-body Simulation</title>
+    <style>
+        canvas {
+            background-color: pink;
+            display: block;
+            margin: 0 auto;
+        }
+        #controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="simulation" width="1200" height="800"></canvas>
+    <div id="controls">
+        <button id="start-button">Start</button>
+        <button id="stop-button">Stop</button>
+    </div>
+    <script>
+        const canvas = document.getElementById('simulation');
+        const ctx = canvas.getContext('2d');
+        const startButton = document.getElementById('start-button');
+        const stopButton = document.getElementById('stop-button');
+
+        const G = 6.67430e-11;
+        const dt = 100;
+        const scale = 1e9;
+
+        const bodies = [
+            { x: 0, y: 0, vx: 0, vy: 0, mass: 300 }, // central body
+            { x: -1.5e11, y: 0, vx: 0, vy: -3, mass: 240 }, // body 1
+            { x: 1e11, y: 0, vx: 0, vy: 3, mass: 1000 }, // body 2
+            { x: 0, y: 2e11, vx: 2, vy: 0, mass: 230 }, // body 3
+            { x: 0, y: -3e11, vx: -2, vy: 0, mass: 230 } // body 4
+        ];
+
+        function computeForces() {
+            const forces = [];
+            for (let i = 0; i < bodies.length; i++) {
+                forces.push({ fx: 0, fy: 0 });
+                for (let j = 0; j < bodies.length; j++) {
+                    if (i !== j) {
+                        const dx = bodies[j].x - bodies[i].x;
+                        const dy = bodies[j].y - bodies[i].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        const f = G * bodies[i].mass * bodies[j].mass / (distance * distance);
+                        const fx = f * dx / distance;
+                        const fy = f * dy / distance;
+                        forces[i].fx += fx;
+                        forces[i].fy += fy;
+                    }
+                }
+            }
+            return forces;
+        }
+
+        function updatePositions(forces) {
+            for (let i = 0; i < bodies.length; i++) {
+                const ax = forces[i].fx / bodies[i].mass;
+                const ay = forces[i].fy / bodies[i].mass;
+
+                bodies[i].vx += ax * dt;
+                bodies[i].vy += ay * dt;
+                
+                bodies[i].x += bodies[i].vx * dt;
+                bodies[i].y += bodies[i].vy * dt;
+            }
+        }
+
+        function drawBodies() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (const body of bodies) {
+                const x = canvas.width / 2 + body.x / scale;
+                const y = canvas.height / 2 - body.y / scale;
+                const radius = Math.max(2, Math.log10(body.mass) - 23);
+
+                ctx.beginPath();
+                ctx.arc(x, y, radius, 0, 2 * Math.PI);
+                ctx.fillStyle = 'black';
+                ctx.fill();
+            }
+        }
+
+        let animationId = null;
+
+        function updateSimulation() {
+            const forces = computeForces();
+            updatePositions(forces);
+            drawBodies();
+            animationId = requestAnimationFrame(updateSimulation);
+        }
+
+        startButton.addEventListener('click', () => {
+            if (!animationId) {
+                updateSimulation();
+            }
+        });
+
+        stopButton.addEventListener('click', () => {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+        });
+    </script>
+</body>
+</html>
